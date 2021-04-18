@@ -2,6 +2,7 @@
 from datetime import datetime, timedelta
 from time import sleep
 import typer
+import sys
 
 app = typer.Typer()
 
@@ -81,6 +82,7 @@ def timer(work_time: str, short_break: str, long_break: str):
         long_break = int(long_break)
     except ValueError:
         print('Please enter your timer varibles in whole minutes only')
+        sys.exit(1)
     timer = Pommy(work_time, short_break, long_break)
     timer.start()
 
